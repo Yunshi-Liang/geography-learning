@@ -915,13 +915,13 @@
       const blob = new Blob([data], { type: 'application/json' });
       blobUrl = URL.createObjectURL(blob);
       const a = document.createElement('a');
-      a.href = blobUrl; a.download = '地理学习进度_' + dateStr(new Date()).replace(/-/g, '') + '.json';
+      a.href = blobUrl; a.download = '经纬学习进度_' + dateStr(new Date()).replace(/-/g, '') + '.json';
       document.body.appendChild(a); a.click(); a.remove();
     } catch (e) {
       // 极端环境下回退：直接以文本形式下载
       const a = document.createElement('a');
       a.href = 'data:application/json;charset=utf-8,' + encodeURIComponent(data);
-      a.download = '地理学习进度_' + dateStr(new Date()).replace(/-/g, '') + '.json';
+      a.download = '经纬学习进度_' + dateStr(new Date()).replace(/-/g, '') + '.json';
       document.body.appendChild(a); a.click(); a.remove();
     }
     if (blobUrl) setTimeout(() => { try { URL.revokeObjectURL(blobUrl); } catch (e) {} }, 1000);
@@ -949,6 +949,13 @@
   $$('#tabbar .tab').forEach(b => b.addEventListener('click', () => switchTab(b.dataset.tab)));
   $('#hDate').textContent = new Date().toLocaleDateString('zh-CN', { month: 'long', day: 'numeric', weekday: 'long' });
   switchTab('today');
+
+  /* 注册 Service Worker：支持「安装到桌面 / 手机主屏」并离线使用 */
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('./sw.js').catch(() => {});
+    });
+  }
 
   // 测试钩子（仅内存注入，不改动源文件）
   window.__t = {
