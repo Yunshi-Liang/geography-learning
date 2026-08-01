@@ -63,7 +63,9 @@ body {
   align-items: baseline;
   justify-content: space-between;
 }
-.h-title { font-size: 22px; font-weight: 700; letter-spacing: -.02em; }
+.h-title { font-size: 22px; font-weight: 700; letter-spacing: -.02em; display: flex; align-items: center; }
+.h-logo { width: 28px; height: 28px; margin-right: 9px; border-radius: 7px; overflow: hidden; box-shadow: 0 1px 2px rgba(0,0,0,.12); flex: none; }
+.h-logo svg { display: block; width: 100%; height: 100%; }
 .h-date { font-size: 13px; color: var(--text-3); font-weight: 500; }
 
 /* ----------------------------- 视图 ----------------------------- */
