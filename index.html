@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover" />
+  <meta name="theme-color" content="#f5f5f7" />
+  <title>地理学习</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div id="app">
+    <header id="header">
+      <div class="h-title">地理学习</div>
+      <div class="h-date" id="hDate"></div>
+    </header>
+
+    <main id="views">
+      <section id="page-today" class="view"></section>
+      <section id="page-explore" class="view"></section>
+      <section id="page-progress" class="view"></section>
+    </main>
+
+    <nav id="tabbar">
+      <button class="tab" data-tab="today">
+        <span class="tab-ico">☀</span><span class="tab-label">今日</span>
+      </button>
+      <button class="tab" data-tab="explore">
+        <span class="tab-ico">◍</span><span class="tab-label">探索</span>
+      </button>
+      <button class="tab" data-tab="progress">
+        <span class="tab-ico">▤</span><span class="tab-label">进度</span>
+      </button>
+    </nav>
+  </div>
+
+  <div id="sheetMask"></div>
+  <div id="sheet"><div id="sheetContent"></div></div>
+  <div id="phaseModal"><div id="phaseModalContent"></div></div>
+  <div id="quizOverlay"></div>
+  <div id="toast"></div>
+
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
